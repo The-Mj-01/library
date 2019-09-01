@@ -1,0 +1,37 @@
+{% extends 'shared/site.html' %}
+
+{% block body %}
+
+
+
+<div style="margin-top: 100px;"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="sidebar-nav">
+                <li><a href="{% url 'book:index' %}">Home</a></li>
+                <li><a href="">All books</a></li>
+                <li><a href="">All authors</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <h1>Local Library Home</h1>
+            <p>Wellcome to <em>Local Library</em>, a verey basic django website developed as tutorial example on the Mozzila Developer</p>
+            <hr/>
+            <h2>Dynamic Content</h2>
+            <p>The library has the following record counts:</p>
+            <ul class="list-unstyled">
+                <li><p><strong>number of books:</strong>{{ num_books }}</p></li>
+                <li><p><strong>number of Instances:</strong>{{ num_instances }}</p></li>
+                <li><p><strong>number of Instances available</strong>{{num_instances_available }}</p></li>
+                <li><p><strong>number of Author:</strong>{{num_author }}</p></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+

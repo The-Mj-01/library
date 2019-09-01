@@ -1,0 +1,36 @@
+{% extends 'shared/site.html' %}
+{% block body %}
+    <div class="container">
+        <div style="margin-top: 50px;"></div>
+        <h1 class="text-center">All books</h1>
+        <div style="margin-bottom: 100px;"></div>
+
+        {% if bookinstance_list %}
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Due Back</th>
+                            <th scope="col">Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bookinst in bookinstance_list %}
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>{{ bookinst.book }}</td>
+                                <td>{{ bookinst.due_back }}</td>
+                                <td>{{ bookinst.borrower }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% include 'partials/pagination.html' %}
+        {% else %}
+            <h1>no book are found!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

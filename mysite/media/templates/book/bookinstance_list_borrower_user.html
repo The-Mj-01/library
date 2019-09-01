@@ -1,0 +1,35 @@
+{% extends 'shared/site.html' %}
+{% block body %}
+<div class="container">
+    <div style="margin-top: 50px;"></div>
+    <div style="margin-bottom: 100px;"></div>
+    <section class="borrowed" style="background-color: #003366;">
+        <h1 class="text-center text-white">Borrowed books</h1>
+        {% if bookinstance_list %}
+        <ul>
+            {% for bookinst in bookinstance_list %}
+            <li class="{% if bookinst.is_overdue %}text-danger {% else %} text-white {% endif %}">list
+                <a class="logout-link" style="color: inherit;" href="{% url 'book:bookDetail' bookinst.book.pk %}">{{ bookinst.book.title }}</a> <span>{{bookinst.due_back}}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p class="text-center text-white">There are no books borrwed</p>
+        {% endif %}
+    </section>
+    <div style="margin-top: 50px;"></div>
+    <section class="borrowed text-white" style="background-color: #003366;">
+        <h1>Private Section</h1>
+        {% if perms.book.can_read_private_section %}
+            <p>Here important description to <strong>VIP</strong> Users.</p>
+            {% if perms.book.user_watcher %}
+                <small>Entred username is: <strong style="text-transform: capitalize;" class="logout-link">{{ user }}</strong></small>
+            {% else %}
+                <small style="color: tomato;">You don't have to see here.</small>
+            {% endif %}
+        {% else %}
+            <p style="color: tomato;">You don't have to see here.</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

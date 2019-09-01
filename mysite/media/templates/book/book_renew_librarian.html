@@ -1,0 +1,28 @@
+{% extends 'shared/site.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div style="margin-top: 50px;"></div>
+    <h1 class="text-center">All books</h1>
+    <div style="margin-bottom: 100px;"></div>
+
+    {% if form.errors %}
+        {% for error , message in form.errors.items%}
+            <div class="alert alert-danger">{{ error }} {{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <h1>Renew: {{ bookinst.book.title  }}</h1>
+    <p>Borrower: {{ bookinst.borrower }}</p>
+    <p {% if bookinst.is_overdue %} class="text-danger" {% endif %}> Due date: {{ bookinst.due_back }}</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="renewal_date">{{  form.renewal_date.label  }}: </label>
+                {{  form.renewal_date  }}
+            </div>
+            <input class="btn btn-info" type="submit" value="Submit" />
+        </form>
+</div>
+
+{% endblock %}
