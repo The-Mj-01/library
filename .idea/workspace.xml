@@ -228,6 +228,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mysite/media/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -271,12 +272,12 @@
       <workItem from="1566636216351" duration="22067000" />
       <workItem from="1566917746725" duration="10463000" />
       <workItem from="1567097661823" duration="20267000" />
-      <workItem from="1567257222363" duration="14888000" />
+      <workItem from="1567257222363" duration="15481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124029000" />
+    <option name="totallyTimeSpent" value="124622000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
